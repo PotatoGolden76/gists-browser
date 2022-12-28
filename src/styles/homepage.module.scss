@@ -17,6 +17,7 @@
     transition: all $transition-speed ease-in-out;
 }
 
+
 .cta {
     
     margin: 0;
@@ -30,4 +31,20 @@
 
     transition: color, font-size; 
     transition: $transition-speed ease-in-out;
+}
+
+@media only screen and (max-width: 760px) {
+    .container {
+      width: 90%;
+      padding: 5px;
+    }
+    .cta {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    .container {
+      width: 100%;
+    }
 }

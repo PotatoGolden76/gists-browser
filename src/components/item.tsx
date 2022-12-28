@@ -1,4 +1,4 @@
-import { faFileCode, faFileLines, faCodeFork, faCodeCommit } from "@fortawesome/free-solid-svg-icons";
+import { faFileCode, faFileLines, faCodeFork, faCodeCommit, faMessage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import styles from "../styles/item.module.scss"
@@ -45,7 +45,7 @@ export default function Item(props: any) {
 
     return (
         <li className={styles.body}>
-            <h2 className={styles.title}><FontAwesomeIcon icon={faFileCode} className={styles.titleIcon} />{(props.data["description"] != null && props.data["description"] !== "") ? props.data["description"] : Object.keys(props.data["files"])[0]}</h2>
+            <a  href={props.data["html_url"]} target="_blank"  className={styles.title}><FontAwesomeIcon icon={faFileCode} className={styles.titleIcon} />{(props.data["description"] != null && props.data["description"] !== "") ? props.data["description"] : Object.keys(props.data["files"])[0]}</a>
             <section className={styles.badges}>
                 {languages.map((l, index) => {
                     if (l == null)
@@ -77,6 +77,11 @@ export default function Item(props: any) {
                         <span className={styles.subtitle}>
                             <FontAwesomeIcon icon={faCodeCommit} className={styles.titleIcon} />
                             {commitNr}
+                        </span>
+
+                        <span className={styles.subtitle}>
+                            <FontAwesomeIcon icon={faMessage} className={styles.titleIcon} />
+                            {props.data.comments}
                         </span>
                     </div>
 
