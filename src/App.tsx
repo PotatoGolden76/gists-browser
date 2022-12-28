@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Search from './components/search';
+import Table from './components/table';
+import styles from './styles/homepage.module.scss'
 
 function App() {
+
+  const [query, setQuery] = useState("")
+
+  const search = (e: any) => {
+    setQuery(e.target.value)
+  }
+
+  const hasQuery = () => {
+    return query.trim().length !== 0
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container} style={hasQuery() ? {top: 0} : {top: "50vh", transform: "translateY(-50%)"}}>
+      <h1 className={styles.cta} style={hasQuery() ? {fontSize: 0, color: "transparent"} : {}}>Gists Browser</h1>
+      <Search onInput={(e: any) => {search(e)}} />
+
+      {hasQuery() ?  <Table query={query} /> : null}
     </div>
   );
 }
