@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gists-browser/static/css/main.f7e49cef.css",
+    "main.js": "/gists-browser/static/js/main.52cc198b.js",
+    "index.html": "/gists-browser/index.html",
+    "main.f7e49cef.css.map": "/gists-browser/static/css/main.f7e49cef.css.map",
+    "main.52cc198b.js.map": "/gists-browser/static/js/main.52cc198b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7e49cef.css",
+    "static/js/main.52cc198b.js"
+  ]
+}
