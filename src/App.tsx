@@ -1,28 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import LoginGithub from 'react-login-github';
 import './App.css';
-import Search from './components/search';
-import Table from './components/table';
-import styles from './styles/homepage.module.scss'
+import Homepage from './pages/homepage';
+import styles from './styles/login.module.scss'
 
 function App() {
 
-  const [query, setQuery] = useState("")
+  //TODO: figure out login maybe
 
-  const search = (e: any) => {
-    setQuery(e.target.value)
-  }
+  // const [code, setCode] = useState("");
+  // const [token, setToken] = useState("");
+  // const isMounted = useRef(false);
 
-  const hasQuery = () => {
-    return query.trim().length !== 0
-  }
+
+  // const headers = new Headers()
+  // headers.append("Accept", "application/json")
+  // headers.append("mode", "cors")
+
+  // useEffect(() => {
+  //   if (!isMounted.current) {
+  //     isMounted.current = true
+  //     return
+  //   }
+  //   fetch("https://github.com/login/oauth/access_token", {
+
+  //     method: "POST",
+  //     headers: headers
+  //   }).then((response) => {
+  //     if (response.ok) {
+  //       return response.json()
+  //     }
+
+  //     throw new Error(response.status.toString())
+  //   }).then((temp_data) => {
+  //     setToken(temp_data["access_token"])
+  //   })
+  //     .catch((error) => {
+
+  //     })
+  // }, [code])
 
   return (
-    <div className={styles.container} style={hasQuery() ? {top: 0} : {top: "50vh", transform: "translateY(-50%)"}}>
-      <h1 className={styles.cta} style={hasQuery() ? {fontSize: 0, color: "transparent"} : {}}>Gists Browser</h1>
-      <Search onInput={(e: any) => {search(e)}} />
-
-      {hasQuery() ?  <Table query={query} /> : null}
-    </div>
+    // <>
+    //   {token !== "" ? <Homepage token={token} /> :
+    //     <div className={styles.container}>
+    //       <h1 className={styles.title}>Log in with GitHub</h1>
+    //       <LoginGithub className={styles.login}
+    //         clientId={process.env.REACT_APP_CLIENT_ID}
+    //         onSuccess={(response: any) => { setCode(response["code"]) }}
+    //         onFailure={(response: any) => { console.error(response) }}
+    //         redirectUri={process.env.REACT_APP_REDIRECT}
+    //       />
+    //     </div>
+    //   }
+    // </>
+    <Homepage />
   );
 }
 
