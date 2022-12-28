@@ -1,0 +1,40 @@
+@import "../variables";
+
+$border: 3px solid $secondary;
+.tooltip {
+    cursor: none;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    background-color: $root-background;
+    color: $text-light;
+    font-size: 1rem;
+    font-weight: 400;
+    width: max-content;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: $border;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -60%) rotate(45deg);
+        border-left: $border;
+        border-top: $border;
+        background-color: $root-background;
+        z-index: -1;
+    }
+}
+
+.active {
+    opacity: 1;
+    top: 120%;
+}

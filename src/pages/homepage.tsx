@@ -11,10 +11,15 @@ export default function Homepage(props: any) {
         return query.trim().length !== 0
     }
 
+    const handle = (e: any) => {
+        setQuery("")
+        setQuery(e.target.value)
+    }
+
     return (
         <div className={styles.container} style={hasQuery() ? { top: 0 } : { top: "50vh", transform: "translateY(-50%)" }}>
             <h1 className={styles.cta} style={hasQuery() ? { fontSize: 0, color: "transparent" } : {}}>Gists Browser</h1>
-            <Search onInput={(q: any) => setQuery(q)} />
+            <Search onInput={handle} />
 
             {hasQuery() ? <Table token={props.token} query={query.trim()} /> : null}
         </div>

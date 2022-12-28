@@ -9,7 +9,9 @@ export default function Badge(props: any) {
         color = "#f78166"
 
     return (
-        <span style={{borderColor: color, color:  color}} className={styles.badge}>{props.language}</span>
+        <span style={{borderColor: color, color: color}} className={styles.badge}>
+            {props.language}
+        </span>
     );
 }
 

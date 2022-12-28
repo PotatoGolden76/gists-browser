@@ -3,11 +3,11 @@
 .body {
     color: inherit;
     width: 100%;
-    height: 200px;
+    min-height: 200px;
     background-color: $primary;
     border: 3px solid $secondary;
     margin: 10px;
-    padding: 20px;
+    padding: 20px 0;
 
     display: flex;
     flex-direction: column;
@@ -16,21 +16,10 @@
 
     &:hover {
         border-top: 3px solid $failure;
-        border-bottom: 3px solid $failure;
+        // border-bottom: 3px solid $failure;
     }
 
     transition: border 0.3s ease-in-out;
-}
-
-.badges {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    min-height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
 }
 
 .title {
@@ -38,5 +27,110 @@
     color: $text-dark;
     font-size: 1rem;
     margin: 0;
-    padding: 0;
+    padding: 10px;
+
+    &>.titleIcon {
+        margin-right: 10px;
+    }
+}
+
+.subtitle {
+    width: 100%;
+    color: $text-dark;
+    font-size: 1rem;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.badges {
+
+
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: $secondary;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.data {
+    width: 100%;
+    min-height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+}
+
+.info {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &>.subtitle {
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.files {
+    width: 100%;
+    margin: 10px 0;
+    padding: 0px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    &>.file {
+        color: $text-light;
+        margin: 5px;
+        padding: 0 10px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px;
+
+    }
+
+
+}
+
+.forks {
+    text-align: center;
+    width: 100%;
+    color: $text-light;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0px 10px 10px 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    justify-self: center;
+    align-self: center;
+
 }

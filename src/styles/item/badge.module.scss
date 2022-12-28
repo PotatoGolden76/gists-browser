@@ -1,6 +1,9 @@
 @import "../variables";
 
 .badge {
+    position: relative;
+    top: 0;
+    left: 0;
     border: 2px solid #fff;
     border-radius: 25px;
     margin: 0 5px;
