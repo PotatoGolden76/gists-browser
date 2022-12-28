@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/gists-browser/static/css/main.160a30ad.css",
-    "main.js": "/gists-browser/static/js/main.324b7d84.js",
+    "main.js": "/gists-browser/static/js/main.d56936fc.js",
     "index.html": "/gists-browser/index.html",
     "main.160a30ad.css.map": "/gists-browser/static/css/main.160a30ad.css.map",
-    "main.324b7d84.js.map": "/gists-browser/static/js/main.324b7d84.js.map"
+    "main.d56936fc.js.map": "/gists-browser/static/js/main.d56936fc.js.map"
   },
   "entrypoints": [
     "static/css/main.160a30ad.css",
-    "static/js/main.324b7d84.js"
+    "static/js/main.d56936fc.js"
   ]
 }
