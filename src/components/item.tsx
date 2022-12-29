@@ -1,7 +1,7 @@
 import { faFileCode, faFileLines, faCodeFork, faCodeCommit, faMessage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import styles from "../styles/item.module.scss"
+import styles from "../styles/item/item.module.scss"
 import Badge from "./item/badge";
 import BadgeImage from "./item/image";
 
@@ -57,7 +57,7 @@ export default function Item(props: any) {
 
                 <div>
                     <h2 className={styles.subtitle}>Files</h2>
-                    <section className={styles.files}>
+                    <section className={styles.files} onClick={() => {props.openEditor(props.data.files)}}>
                         {files.map((f, i) => {
                             return <span className={styles.file} key={f + i}>
                                 <FontAwesomeIcon icon={faFileLines} />

@@ -41,7 +41,7 @@ export default function Table(props: any) {
             <ul>
                 {data.map((d, index) => {
                     
-                    return <Item data={d} key={index}/>
+                    return <Item data={d} key={index} openEditor={props.openEditor}/>
                 })}
             </ul>
         </div>
