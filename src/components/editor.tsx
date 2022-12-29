@@ -8,6 +8,7 @@ import Tabs from "./editor/tabs";
 import Loading from "./editor/loading";
 
 export default function Editor(props: any) {
+    //Open file data
     const [active, setActive] = useState(Object.keys(props.files)[0])
     const [code, setCode] = useState("")
     const [isLoading, setLoading] = useState(false)
@@ -18,8 +19,8 @@ export default function Editor(props: any) {
         return props.files[active]["language"].trim().toLowerCase()
     }
 
+    //Code request for active file
     const headers = new Headers()
-
     useEffect(() => {
         setLoading(true)
         fetch(props.files[active]["raw_url"], {
@@ -38,6 +39,7 @@ export default function Editor(props: any) {
                 <Tabs key="tab-key" files={Object.keys(props.files)} active={active} setActive={setActive} />
                 <button onClick={props.onClose}><FontAwesomeIcon icon={faX} /></button>
             </nav>
+            {/* Render Spinner if code is not done fetching */}
             {isLoading ? <Loading /> :
                 <SyntaxHighlighter key={"editor-key"} showLineNumbers wrapLongLines language={getLanguage()} style={atomOneDark}>
                     {code}

@@ -1,6 +1,6 @@
 {
   "name": "gists-browser",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://potatogolden76.github.io/gists-browser",
   "private": true,
   "dependencies": {

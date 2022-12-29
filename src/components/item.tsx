@@ -6,11 +6,7 @@ import Badge from "./item/badge";
 import BadgeImage from "./item/image";
 
 export default function Item(props: any) {
-    const headers = new Headers()
-    headers.append('Accept', 'application/vnd.github+json')
-    if (process.env.REACT_APP_CLIENT_TOKEN)
-        headers.append('Authorization', "Bearer " + process.env.REACT_APP_CLIENT_TOKEN)
-
+    //Gist-specific data
     const files = Object.keys(props.data.files)
     const languages: string[] = []
     files.forEach((f) => {
@@ -22,7 +18,14 @@ export default function Item(props: any) {
     const [forkNr, setForkNr] = useState(0)
     const [forks, setForks] = useState(new Array())
 
+    //Gist data request params
+    const headers = new Headers()
+    headers.append('Accept', 'application/vnd.github+json')
+    if (process.env.REACT_APP_CLIENT_TOKEN)
+        headers.append('Authorization', "Bearer " + process.env.REACT_APP_CLIENT_TOKEN)
+
     useEffect(() => {
+        //Fork request
         fetch(props.data["forks_url"], {
             method: "GET",
             headers: headers
@@ -33,6 +36,7 @@ export default function Item(props: any) {
             setForks(data.slice(0, 3))
         })
 
+        //Commit number request
         fetch(props.data["commits_url"], {
             method: "GET",
             headers: headers
@@ -45,8 +49,10 @@ export default function Item(props: any) {
 
     return (
         <li className={styles.body}>
+            {/* Link to Gist page */}
             <a  href={props.data["html_url"]} target="_blank"  className={styles.title}><FontAwesomeIcon icon={faFileCode} className={styles.titleIcon} />{(props.data["description"] != null && props.data["description"] !== "") ? props.data["description"] : Object.keys(props.data["files"])[0]}</a>
             <section className={styles.badges}>
+                {/* Languages badges */}
                 {languages.map((l, index) => {
                     if (l == null)
                         return null
@@ -54,7 +60,7 @@ export default function Item(props: any) {
                 })}
             </section>
             <section className={styles.data}>
-
+                {/* Left panel (files) */}
                 <div>
                     <h2 className={styles.subtitle}>Files</h2>
                     <section className={styles.files} onClick={() => {props.openEditor(props.data.files)}}>
@@ -67,24 +73,29 @@ export default function Item(props: any) {
                     </section>
                 </div>
 
+                {/* Right panel (general info) */}
                 <div>
                     <div className={styles.info}>
+                        {/* Fork number */}
                         <span className={styles.subtitle}>
                             <FontAwesomeIcon icon={faCodeFork} className={styles.titleIcon} />
                             {forkNr}
                         </span>
 
+                        {/* Commit number */}
                         <span className={styles.subtitle}>
                             <FontAwesomeIcon icon={faCodeCommit} className={styles.titleIcon} />
                             {commitNr}
                         </span>
-
+                        
+                        {/* Comment number */}
                         <span className={styles.subtitle}>
                             <FontAwesomeIcon icon={faMessage} className={styles.titleIcon} />
                             {props.data.comments}
                         </span>
                     </div>
 
+                    {/* If forks are not empty display the first three */}
                     {forkNr == 0 ? null :
                         <div>
                             <h2 className={styles.subtitle}>Recent forks</h2>

@@ -4,9 +4,9 @@ import Tooltip from "./tooltip";
 export default function BadgeImage(props: any) {
 
     const [isHover, setHover] = useState(false)
-
     const handle = () => setHover(!isHover)
 
+    // Images style in-code to avoid a .scss file with 3 lines
     const imageStyle = {
         borderRadius: "50%",
         margin: "5px",

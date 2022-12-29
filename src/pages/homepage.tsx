@@ -14,11 +14,13 @@ export default function Homepage(props: any) {
         return query.trim().length !== 0
     }
 
+    //Handle the update of the search bar
     const handle = (e: any) => {
         setQuery("")
         setQuery(e.target.value)
     }
 
+    //Handle editor open/lose 
     const openEditor = (files: Array<any>) => {
         setFiles(files)
         setEditorOpen(true)

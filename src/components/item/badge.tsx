@@ -5,6 +5,7 @@ import colors from "../colors";
 export default function Badge(props: any) {
 
     let color = colors[props.language as keyof typeof colors]
+    // Default color for languages not in the list
     if(color == null)
         color = "#f78166"
 

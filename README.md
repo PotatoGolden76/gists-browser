@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Github Gists Browser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Browse the public gists of any Github users with this SPA built using React.js, Typescript and Sass.
 
-## Available Scripts
+## Features:
++ Search public gists
++ See the programming languages used in a Gist
++ See the number of Forks, Commits and Comments
++ Check out who forked the Gist recently
++ See the files of a Gist
++ Read the files using a built-in editor with tabs and syntax highlighting
++ Jump straight to a Gist's page
 
-In the project directory, you can run:
+## Usage:
 
-### `npm start`
++ The app is available on [Github Pages](https://potatogolden76.github.io/gists-browser)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    ⚠ WARNING: the app in its current state does not use an authentication method, thus using the app from Github Pages will result in being rate-limited at 60 requests/hour, as per Github Policy ⚠
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
++ Building from source:
+    
+    The app is built using create-react-app, so the setup is as easy as doing:
+    ```
+    git clone https://github.com/PotatoGolden76/gists-browser.git
 
-### `npm test`
+    cd gists-browser
+    npm install
+    npm start
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    You can get around the rate limitation by running the app locally and adding a personal access token in `.env` at `REACT_APP_CLIENT_TOKEN`
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future plans:
++ Implement authentication
++ Add a way to see comments
++ Add a way to see commits
++ Add a way to see forks
++ Find a way to fetch large files more efficiently 
