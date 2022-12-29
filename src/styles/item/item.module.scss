@@ -6,7 +6,7 @@
     min-height: 200px;
     background-color: $primary;
     border: 3px solid $secondary;
-    margin: 10px;
+    margin: 10px 0;
     padding: 20px 0;
 
     display: flex;
@@ -36,6 +36,7 @@
     }
 
     text-decoration: none;
+
     &:visited {
         color: $text-emphasis;
         text-decoration: none;
@@ -73,7 +74,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    align-items: center;
 
+}
+
+@media only screen and (max-width: 760px) {
+    .data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .info {
@@ -93,6 +104,13 @@
         justify-content: center;
         align-items: center;
         gap: 10px;
+    }
+}
+
+.col {
+    flex-direction: column;
+    &>.subtitle {
+        flex-direction: column;
     }
 }
 

@@ -17,3 +17,11 @@
         outline: 3px solid $active;
     }
 }
+
+@media only screen and (max-width: 490px) {
+    .search {
+      width: 90%;
+      
+    }
+    
+}

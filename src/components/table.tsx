@@ -21,7 +21,6 @@ export default function Table(props: any) {
             if (response.ok) {
                 return response.json()
             }
-            //TODO: fix error handling
             throw new Error(response.status.toString())
         }).then((temp_data) => {
             setError("")
@@ -31,13 +30,14 @@ export default function Table(props: any) {
         })
             .catch((error) => {
                 setError(error.toString())
+                setData(new Array())
             })
     }, [props.query])
 
     return (
         <div className={styles.content}>
             <h2 className={styles.subtitle}>Results: </h2>
-            {error !== "" ? <h2 className={styles.subtitle}>{error}</h2> : null}
+            {data.length == 0 ? <h2 className={styles.subtitle}>{"No gists found :("}</h2> : null}
             <ul>
                 {data.map((d, index) => {
                     
