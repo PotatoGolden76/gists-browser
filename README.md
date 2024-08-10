@@ -1,3 +1,5 @@
+⚠️ THIS PROJECT IS PLANNED FOR A REWRITE ⚠️
+
 # Github Gists Browser
 
 Browse the public gists of any Github users with this SPA built using React.js, Typescript and Sass.
